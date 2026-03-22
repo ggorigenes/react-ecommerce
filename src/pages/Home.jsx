@@ -8,7 +8,7 @@ const Home = () => {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(true);
 
-    const API_BASE = "http://localhost:5001";
+const API_BASE = "https://ecommerce-backend-vie1.onrender.com";
 
     useEffect(() => {
         const carouselEl = document.querySelector('#feuBannerCarousel');
@@ -91,7 +91,7 @@ const Home = () => {
                                 className="btn btn-outline-success border-2 px-4 py-2 fw-bold rounded-pill transition-all"
                                 style={{ color: "#006241", borderColor: "#006241" }}
                             >
-                                {cat.icon} {cat.name}
+                                {cat.name}
                             </Link>
                         ))}
                     </div>
