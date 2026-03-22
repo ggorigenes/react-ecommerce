@@ -57,7 +57,7 @@ const ProductList = ({ searchTerm, category, setCategory, sortOrder, setSortOrde
             <div className="container py-4">
 
                 <div className="d-md-none mb-4 px-2" style={{ display: 'flex', flexDirection: 'column', gap: '15px' }}>
-                    
+
                     <div className="bg-white rounded shadow-sm border p-3">
                         <h6 className="fw-bold text-secondary mb-2" style={{ fontSize: '11px', letterSpacing: '1px' }}>EXPLORE CATEGORIES</h6>
                         <div className="d-flex overflow-auto pb-1 gap-2 no-scrollbar" style={{ whiteSpace: 'nowrap' }}>

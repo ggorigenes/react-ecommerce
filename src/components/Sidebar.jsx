@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useRecent } from "../context/RecentlyViewedContext"; 
+import { useRecent } from "../context/RecentlyViewedContext";
 
 const Sidebar = ({ setSelectedCategory, selectedCategory }) => {
     const [categories, setCategories] = useState([]);
-    const { recentProducts } = useRecent(); 
+    const { recentProducts } = useRecent();
 
     useEffect(() => {
         fetch("https://ecommerce-backend-vie1.onrender.com/api/products")
@@ -64,14 +64,14 @@ const Sidebar = ({ setSelectedCategory, selectedCategory }) => {
                     <div className="d-flex flex-column gap-3">
                         {recentProducts.map((product) => (
                             <div key={`side-recent-${product.id}`} className="d-flex align-items-center gap-2 pb-2 border-bottom border-light last-child-border-0">
-                                <div 
-                                    className="bg-light rounded d-flex align-items-center justify-content-center" 
+                                <div
+                                    className="bg-light rounded d-flex align-items-center justify-content-center"
                                     style={{ width: "45px", height: "45px", flexShrink: 0 }}
                                 >
-                                    <img 
-                                        src={product.image} 
-                                        alt={product.name} 
-                                        style={{ maxWidth: "35px", maxHeight: "35px", objectFit: "contain" }} 
+                                    <img
+                                        src={product.image}
+                                        alt={product.name}
+                                        style={{ maxWidth: "35px", maxHeight: "35px", objectFit: "contain" }}
                                     />
                                 </div>
                                 <div className="overflow-hidden">
