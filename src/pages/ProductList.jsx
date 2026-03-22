@@ -80,16 +80,28 @@ const ProductList = ({ searchTerm, category, setCategory, sortOrder, setSortOrde
                         <div className="bg-white rounded shadow-sm border p-3">
                             <h6 className="fw-bold text-secondary mb-2" style={{ fontSize: '11px', letterSpacing: '1px' }}>RECENTLY VIEWED</h6>
                             <div className="d-flex overflow-auto gap-2 no-scrollbar">
-                                {recentProducts.map((p) => (
-                                    <div
-                                        key={p.id}
-                                        className="bg-light rounded border p-1"
-                                        style={{ minWidth: '60px', cursor: 'pointer' }}
-                                        onClick={() => navigate(`/product/${p.id}`)}
-                                    >
-                                        <img src={p.image} alt={p.name} style={{ width: '50px', height: '50px', objectFit: 'contain' }} />
-                                    </div>
-                                ))}
+                                {recentProducts.map((p) => {
+                                    // Skip if p is not a valid object or is missing an ID
+                                    if (!p || typeof p !== 'object' || !p.id) return null;
+
+                                    return (
+                                        <div
+                                            key={p.id}
+                                            className="bg-light rounded border p-1"
+                                            style={{ minWidth: '60px', cursor: 'pointer' }}
+                                            onClick={() => navigate(`/product/${p.id}`)}
+                                        >
+                                            {/* Ensure p.image exists and p itself is NOT rendered */}
+                                            {p.image && (
+                                                <img
+                                                    src={p.image}
+                                                    alt={p.name || "Product"}
+                                                    style={{ width: '50px', height: '50px', objectFit: 'contain' }}
+                                                />
+                                            )}
+                                        </div>
+                                    );
+                                })}
                             </div>
                         </div>
                     )}
