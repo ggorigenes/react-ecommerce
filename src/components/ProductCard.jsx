@@ -11,8 +11,6 @@ const ProductCard = ({ product }) => {
     const { toggleCompare, compareList } = useCompare();
     const isComparing = compareList.some(item => item.id === product.id);
 
-    // STRICT BOOLEAN CHECK: 
-    // This ensures that if discount is 0, it becomes 'false' rather than the number '0'
     const hasDiscount = Number(product.discount) > 0;
 
     const handleAddToCart = (e) => {
@@ -89,7 +87,6 @@ const ProductCard = ({ product }) => {
             </button>
 
             <div className="product-img-wrapper" style={{ overflow: 'hidden' }}>
-                {/* STRICT CHECK: This removes the '0' from the top-left */}
                 {hasDiscount && (
                     <div className="sale-badge" style={{
                         position: 'absolute',
@@ -128,7 +125,6 @@ const ProductCard = ({ product }) => {
                 </div>
 
                 <div className="mb-3 d-flex align-items-center justify-content-center gap-2">
-                    {/* STRICT CHECK: This removes the '0' from the price area */}
                     {hasDiscount && product.oldPrice && (
                         <span className="text-muted text-decoration-line-through small">
                             ₱{Number(product.oldPrice).toLocaleString()}

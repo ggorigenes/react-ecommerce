@@ -6,7 +6,7 @@ const Sidebar = ({ setSelectedCategory, selectedCategory }) => {
     const { recentProducts } = useRecent(); 
 
     useEffect(() => {
-        fetch("http://localhost:5001/api/categories")
+        fetch("https://ecommerce-backend-vie1.onrender.com/api/products")
             .then(res => {
                 if (!res.ok) throw new Error("Server error");
                 return res.json();

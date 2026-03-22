@@ -13,7 +13,7 @@ const ProductList = ({ searchTerm, category, setCategory, sortOrder, setSortOrde
     const categories = ["All", "Clothing", "Accessories", "Electronics"];
 
     useEffect(() => {
-        fetch("http://localhost:5001/api/products")
+        fetch("https://ecommerce-backend-vie1.onrender.com/api/products")
             .then(res => res.json())
             .then(data => {
                 const cleanData = Array.isArray(data) ? data : (data.products || []);
